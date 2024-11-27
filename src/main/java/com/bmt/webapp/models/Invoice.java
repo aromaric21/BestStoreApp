@@ -11,7 +11,8 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String storageFilname;
+    private String fileName;
+    private String storageFileName;
 
     private Date createdAt;
 
@@ -26,12 +27,20 @@ public class Invoice {
         this.id = id;
     }
 
-    public String getStorageFilname() {
-        return storageFilname;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setStorageFilname(String storageFilname) {
-        this.storageFilname = storageFilname;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getStorageFileName() {
+        return storageFileName;
+    }
+
+    public void setStorageFileName(String storageFileName) {
+        this.storageFileName = storageFileName;
     }
 
     public Date getCreatedAt() {

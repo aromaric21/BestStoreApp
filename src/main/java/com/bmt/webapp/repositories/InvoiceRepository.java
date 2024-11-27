@@ -1,4 +1,8 @@
 package com.bmt.webapp.repositories;
 
-public interface InvoiceRepository {
+import com.bmt.webapp.models.Invoice;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
+
 }
