@@ -138,4 +138,16 @@ public class ClientsController {
         }
         return "redirect:/clients";
     }
+
+    @GetMapping("/details")
+    public String getClient(Model model, @RequestParam int id){
+        Client client = clientRepository.findById(id).orElse(null);
+        if (client == null){
+            return "redirect:/clients";
+        }
+
+        model.addAttribute("client", client);
+
+        return "clients/details";
+    }
 }

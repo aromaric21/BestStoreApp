@@ -3,6 +3,7 @@ package com.bmt.webapp.models;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "clients")
@@ -20,6 +21,9 @@ public class Client {
     private String address;
     private String status;  //New, Permanent, Lead, Occasional, Inactive
     private Date createdAt;
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Invoice> invoices;
 
     public int getId() {
         return id;
@@ -83,5 +87,13 @@ public class Client {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
     }
 }
