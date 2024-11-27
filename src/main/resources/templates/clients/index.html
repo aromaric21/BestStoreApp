@@ -31,7 +31,15 @@
             <td th:text="${client.email}"></td>
             <td th:text="${client.phone}"></td>
             <td th:text="${client.address}"></td>
-            <td th:text="${client.status}"></td>
+
+            <td>
+                <span th:if='${client.status.equals("New")}' class="badge text-bg-primary" th:text="${client.status}"></span>
+                <span th:if='${client.status.equals("Permanent")}' class="badge text-bg-warning" th:text="${client.status}"></span>
+                <span th:if='${client.status.equals("Lead")}' class="badge text-bg-success" th:text="${client.status}"></span>
+                <span th:if='${client.status.equals("Occasional")}' class="badge text-bg-info" th:text="${client.status}"></span>
+                <span th:if='${client.status.equals("Inactive")}' class="badge text-bg-secondary" th:text="${client.status}"></span>
+            </td>
+
             <td th:text="${client.createdAt.toString().substring(0, 10)}"></td>
             <td style="white-space:nowrap">
                 <a class="btn btn-primary btn-sm" th:href="@{/clients/edit(id=${client.id})}">
